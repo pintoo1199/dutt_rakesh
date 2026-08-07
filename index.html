@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annual Fee Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="ledger-page">
+
+    <header class="ledger-header">
+      <div class="header-top">
+        <span class="eyebrow">Office Use &middot; Fee Collection</span>
+        <a class="admin-link" href="admin.html">View register &amp; export &rarr;</a>
+      </div>
+      <h1>Annual Fee Register</h1>
+      <p class="subtitle">Enter the particulars below. Each entry is stamped with a serial number and saved to the register the moment you submit.</p>
+    </header>
+
+    <div class="stub-and-form">
+
+      <!-- Signature element: a running counter stub, like the carbon-copy foil of a receipt book -->
+      <aside class="counter-stub" aria-live="polite">
+        <span class="stub-label">Next Sr. No.</span>
+        <span class="stub-number" id="nextSrNumber">&mdash;</span>
+        <span class="stub-foot">auto-assigned on save</span>
+      </aside>
+
+      <form id="feeForm" class="ledger-form" autocomplete="off">
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Full name of employee" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="cadre">Cadre</label>
+            <select id="cadre" name="cadre" required>
+              <option value="" disabled selected>Select cadre</option>
+              <option value="ASST">ASST</option>
+              <option value="HGA">HGA</option>
+              <option value="AAO">AAO</option>
+              <option value="AO">AO</option>
+              <option value="ADM">ADM</option>
+              <option value="DM">DM</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="branchCode">Branch Code</label>
+            <input type="text" id="branchCode" name="branchCode" placeholder="e.g. BR-014" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="annualFees">Annual Fees (&#8377;)</label>
+            <input type="number" id="annualFees" name="annualFees" min="0" step="1" placeholder="0" required>
+          </div>
+
+          <div class="field">
+            <label for="paymentDate">Payment Date</label>
+            <input type="date" id="paymentDate" name="paymentDate" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="paidBy">Paid By</label>
+          <div class="segmented" id="paidBy" role="radiogroup" aria-label="Paid By">
+            <button type="button" class="segment" data-value="CASH">CASH</button>
+            <button type="button" class="segment" data-value="CHEQUE">CHEQUE</button>
+            <button type="button" class="segment" data-value="ONLINE">ONLINE</button>
+          </div>
+          <input type="hidden" id="paidByValue" name="paidBy" required>
+        </div>
+
+        <div class="form-footer">
+          <p class="status" id="statusMsg" role="status"></p>
+          <button type="submit" id="submitBtn" class="submit-btn">
+            <span class="btn-label">Save entry</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+<script src="assets/config.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>

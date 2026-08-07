@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fee Register &mdash; View &amp; Export</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="ledger-page">
+
+    <header class="ledger-header">
+      <div class="header-top">
+        <span class="eyebrow">Office Use &middot; Fee Collection</span>
+        <a class="admin-link" href="index.html">&larr; Back to entry form</a>
+      </div>
+      <h1>Register &amp; Export</h1>
+      <p class="subtitle">Every saved entry appears here in real time, pulled straight from the spreadsheet.</p>
+    </header>
+
+    <div class="summary-row" id="summaryRow"></div>
+
+    <div class="toolbar">
+      <div class="left">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search name, branch code, cadre…">
+        <button class="btn-outline" id="refreshBtn">Refresh</button>
+      </div>
+      <div class="right">
+        <button class="btn-solid" id="exportBtn">Export as .xlsx</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="register" id="registerTable">
+        <thead>
+          <tr>
+            <th>Sr No.</th>
+            <th>Name</th>
+            <th>Cadre</th>
+            <th>Branch Code</th>
+            <th>Annual Fees</th>
+            <th>Payment Date</th>
+            <th>Paid By</th>
+          </tr>
+        </thead>
+        <tbody id="registerBody">
+          <tr><td colspan="7"><div class="loading-state">Loading register…</div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/admin.js"></script>
+</body>
+</html>
